@@ -6,8 +6,8 @@
 <body>
 <h1>Update Employee</h1>
 <form action="#" th:action="@{/employee/{id}/update(id=${employee.employeeID})}" th:object="${employee}" method="post">
-    <p>Position: <input type="text" th:field="*{position}"/></p>
-    <p>Salary: <input type="number" th:field="*{salary}"/></p>
+    <p>Position: <input type="text" th:field="*{employee.position}"/></p>
+    <p>Salary: <input type="number" th:field="*{employee.salary}"/></p>
     <p><input type="submit" value="Update"/> <input type="reset" value="Reset"/></p>
 </form>
 </body>
