@@ -1,11 +1,13 @@
 package com.example.wokrers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@RestController
+@Controller
 public class EmployeeController {
 
     @Autowired
@@ -34,5 +36,11 @@ public class EmployeeController {
     @GetMapping("/employees")
     public Map<Integer, Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
+    }
+
+    @GetMapping("/employee")
+    public String showAddEmployeeForm(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "add-employee";
     }
 }

@@ -10,6 +10,9 @@ public class Employee {
     private int employeeID;
     private int salary;
 
+    public Employee() {
+    }
+
     public Employee(String firstName, String lastName, String position, int salary) {
         this.firstName = firstName;
         this.lastName = lastName;
