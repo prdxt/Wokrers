@@ -27,6 +27,10 @@ public class Employee {
         return position;
     }
 
+    public int getSalary() {
+        return salary;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
