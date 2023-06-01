@@ -3,12 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <title>Zarządzaj swoimi pracownikami!</title>
+  <style>
+    *{
+      font-family: Verdana;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    h1{
+      text-align: center;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+
+
+    #zobacz {
+      display: inline-block;
+      padding: 6px 12px;
+      text-decoration: none;
+      color: black;
+      border: 1px solid #0000ff;
+      border-radius: 4px;
+    }
+    #usun{
+      display: inline-block;
+      padding: 6px 12px;
+      text-decoration: none;
+      color: black;
+      border: 1px solid red;
+      border-radius: 4px;
+
+    }
+
+    #edytuj {
+      display: inline-block;
+      padding: 6px 12px;
+      text-decoration: none;
+      color: black;
+      border: 1px solid seagreen;
+      border-radius: 4px;
+    }
+
+    #edytuj:hover {
+      background-color: seagreen;
+      color: black;
+    }
+    #zobacz:hover {
+      background-color: blue;
+      color: black;
+    }
+    #usun:hover {
+      background-color: red;
+      color: black;
+    }
+
+    #dodaj{
+      display: inline-block;
+      padding: 6px 12px;
+      text-decoration: none;
+      color: white;
+      border: 1px solid Black;
+      border-radius: 4px;
+      float: right;
+    }
+
+    #dodaj:hover{
+      background-color: black;
+      color: white;
+    }
+
+    #wyszukaj {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    #wyszukaj input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+
+    #wyszukaj button[type="submit"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #wyszukaj button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    #header{
+      background-color: blue;
+      width: 100%;
+      height: 40px;
+    }
+
+
+  </style>
 </head>
 <body>
-
-<h1>Lista pracowników</h1>
-<a href="/add">Dodaj pracownika</a>
-<form action="/search" method="get">
+<section id="header">
+<a href="/add" id="dodaj">Dodaj pracownika</a>
+</section></br>
+<h1>Lista pracowników</h1></br>
+<form action="/search" method="get" id="wyszukaj">
   <input type="text" name="lastName" placeholder="Wyszukaj pracownika po nazwisku">
   <button type="submit">Szukaj</button>
 </form>
@@ -28,9 +146,9 @@
     <td th:text="${employee.position}"></td>
     <td th:text="${employee.salary}"></td>
     <td>
-      <a th:href="@{/edit/{id}(id=${employee.id})}" >Edytuj</a>
-      <a th:href="@{/delete/{id}(id=${employee.id})}">Usuń</a>
-      <a>Zobacz dane</a>
+      <a th:href="@{/edit/{id}(id=${employee.id})}" id="edytuj">Edytuj</a>
+      <a th:href="@{/delete/{id}(id=${employee.id})}" id="usun">Usuń</a>
+      <a id="zobacz">Zobacz dane</a>
     </td>
   </tr>
 </table>
