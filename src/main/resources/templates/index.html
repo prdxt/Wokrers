@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zarządzaj swoimi pracownikami!</title>
+</head>
+<body>
+
+<h1>Lista pracowników</h1>
+<a href="/add">Dodaj pracownika</a>
+<form action="/search" method="get">
+  <input type="text" name="lastName" placeholder="Wyszukaj pracownika po nazwisku">
+  <button type="submit">Szukaj</button>
+</form>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Imię</th>
+    <th>Nazwisko</th>
+    <th>Stanowisko</th>
+    <th>Wynagrodzenie</th>
+    <th>Akcje</th>
+  </tr>
+  <tr th:each="employee : ${employees}">
+    <td th:text="${employee.id}"></td>
+    <td th:text="${employee.name}"></td>
+    <td th:text="${employee.lastName}"></td>
+    <td th:text="${employee.position}"></td>
+    <td th:text="${employee.salary}"></td>
+    <td>
+      <a th:href="@{/edit/{id}(id=${employee.id})}" >Edytuj</a>
+      <a th:href="@{/delete/{id}(id=${employee.id})}">Usuń</a>
+      <a>Zobacz dane</a>
+    </td>
+  </tr>
+</table>
+
+
+</body>
+</html>

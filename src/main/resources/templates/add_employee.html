@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dodaj swojego pracownika!</title>
+</head>
+<body>
+<h1>Dodaj pracownika:</h1>
+<form action="/add" method="post">
+    <label for="name">Imię:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="lastName">Nazwisko:</label>
+    <input type="text" id="lastName" name="lastName" required>
+    <label for="position">Stanowisko:</label>
+    <input type="text" id="position" name="position" required>
+    <label for="salary">Wynagrodzenie:</label>
+    <input type="number" id="salary" name="salary" required>
+    <button type="submit">Dodaj</button>
+</form>
+<a href="/">Powrót do listy pracowników</a>
+</body>
+</html>
